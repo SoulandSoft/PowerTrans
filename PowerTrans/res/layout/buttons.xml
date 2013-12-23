@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal"
+              android:id="@+id/layout1"          >
+
+    <EditText
+            android:text="Current, A"
+            android:id="@+id/edit_I"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+           />
+
+    <EditText
+            android:text="Voltage, V"
+            android:id="@+id/edit_V"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            />
+
+
+    <Button xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/add_wire_button"
+        style="?android:attr/buttonStyleSmall"
+        android:text="Add"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:onClick="add_wire"/>
+
+    <Button xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/remove_wire_button"
+            style="?android:attr/buttonStyleSmall"
+            android:text="X"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:onClick="remove_wire"
+            />
+
+</LinearLayout>
