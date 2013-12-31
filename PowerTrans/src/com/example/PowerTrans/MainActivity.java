@@ -60,7 +60,7 @@ public class MainActivity extends Activity {
         //Зная индекс item в группе LinearLayout, можно удалить  элемент
         ll.removeViewAt(index);
     }
-
+   /*
 	public void sendMessage(View view) {
 		Intent intent = new Intent(this, DisplayMessageActivity.class);
 		EditText editText = (EditText) findViewById(R.id.edit_message);
@@ -68,12 +68,13 @@ public class MainActivity extends Activity {
 		intent.putExtra(EXTRA_MESSAGE, message);
 		startActivity(intent);
 	}
+     */
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    // Handle presses on the action bar items
 	    switch (item.getItemId()) {
 	        case R.id.item2 :
-	            sendMessage(this.getCurrentFocus());
+	          //  sendMessage(this.getCurrentFocus());
 	            return true;
 	      //  case R.id.action_settings:
 	        //    openSettings();

@@ -2,11 +2,13 @@
 <resources>
     <string name="app_name">PowerTrans</string>
     <string name="edit_message">Enter a message</string>
-    <string name="button_send">Send</string>
+    <string name="button_add">Add Wire</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_display_message">My Message</string>
     <string name="item2">Item2</string>
     <string name="item3">Item3</string>
+    <string name="Voltage_caption">Voltage,V</string>
+    <string name="Current_caption">Current,A</string>
 </resources>
