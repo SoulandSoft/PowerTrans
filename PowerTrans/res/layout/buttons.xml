@@ -14,7 +14,7 @@
             android:text=""
             android:inputType="numberDecimal"
             android:id="@+id/edit_I"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="40dp"
            />
 
@@ -26,7 +26,7 @@
             android:text=""
             android:inputType="numberDecimal"
             android:id="@+id/edit_V"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="40dp"
             />
 

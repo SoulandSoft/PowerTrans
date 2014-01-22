@@ -7,12 +7,7 @@
     android:orientation="vertical"
     android:id="@+id/layout1">
 
-    <fragment
-            class="com.example.PowerTrans.Fragment1"
-            android:id="@+id/myfragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-    </fragment>
+
 
 </LinearLayout>
 
