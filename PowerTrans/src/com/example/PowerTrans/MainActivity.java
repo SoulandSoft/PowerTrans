@@ -39,10 +39,12 @@ public class MainActivity extends FragmentActivity {
         Fragment1 fragment;
         if (savedInstanceState != null) {
         fragment = (Fragment1) getSupportFragmentManager().findFragmentById(R.id.myFragment);
-    } else {
+    }
+     /*   else {
         fragment = new Fragment1();
         getSupportFragmentManager().beginTransaction().add(R.id.layout1, fragment).commit();
         }
+        */
     }
 
 	@Override
