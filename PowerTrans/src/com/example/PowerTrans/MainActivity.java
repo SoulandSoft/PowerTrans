@@ -3,31 +3,32 @@ package com.example.PowerTrans;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class MainActivity extends FragmentActivity {
 
 	public final static String EXTRA_MESSAGE = "com.example.PowerTrans.MESSAGE";
     public LayoutInflater lInflater;
     public Fragment1 myFragment;
-
+    final String LOG_TAG = "myLogs";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
         lInflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        Fragment1 fragment;
         if (savedInstanceState != null) {
-        fragment = (Fragment1) getSupportFragmentManager().findFragmentById(R.id.myFragment);
+        myFragment = (Fragment1) getSupportFragmentManager().findFragmentById(R.id.myFragment);
     }
-     /*   else {
-        fragment = new Fragment1();
-        getSupportFragmentManager().beginTransaction().add(R.id.layout1, fragment).commit();
+        else {
+        myFragment = new Fragment1();
+        getSupportFragmentManager().beginTransaction().add(R.id.layout1, myFragment).commit();
         }
-        */
+
     }
 
 	@Override
@@ -61,5 +62,10 @@ public class MainActivity extends FragmentActivity {
 	            return super.onOptionsItemSelected(item);
 	    }
 	}
+
+    public void Fragment1_Click(View view){
+        Log.d(LOG_TAG, "My fragment clickcall");
+        myFragment.Click(view);
+    }
 
 }
