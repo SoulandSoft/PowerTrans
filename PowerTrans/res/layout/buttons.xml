@@ -21,7 +21,8 @@
     <Space
             android:layout_width="20px"
             android:layout_height="20px"
-            android:id="@+id/space1" android:layout_gravity="center_horizontal|top"/>
+            android:id="@+id/space1"
+            android:layout_gravity="center_horizontal|top"/>
     <EditText
             android:text=""
             android:inputType="numberDecimal"
@@ -37,15 +38,14 @@
         android:text="Upd"
         android:layout_width="50dp"
         android:layout_height="40dp"
-        android:onClick="add_wire"/>
+       />
 
     <Button xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/remove_wire_button"
+            android:id="@+id/Remove_button"
             style="?android:attr/buttonStyleSmall"
             android:text="X"
             android:layout_width="50dp"
             android:layout_height="40dp"
-            android:onClick="remove_wire"
             />
 
 </LinearLayout>

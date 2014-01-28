@@ -1,34 +1,17 @@
 package com.example.PowerTrans;
 
+import android.content.Context;
 import android.os.Bundle;
-import android.app.Activity;
-import android.content.Intent;
+import android.support.v4.app.FragmentActivity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.LayoutInflater;
-import android.widget.LinearLayout;
-import android.content.Context;
-import android.support.v4.app.*;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 
 public class MainActivity extends FragmentActivity {
 
 	public final static String EXTRA_MESSAGE = "com.example.PowerTrans.MESSAGE";
     public LayoutInflater lInflater;
     public Fragment1 myFragment;
-
-
-    public void add_wire(View view){
-
-    //myFragment = (Fragment1)getFragmentManager().findFragmentById(R.id.myFragment);
-    LinearLayout L = (LinearLayout)lInflater.inflate(R.layout.buttons,null);
-    //myFragment.add_wire(L);
-    LinearLayout In = (LinearLayout)findViewById(R.id.layout2);
-        In.addView(L);
-    }
 
 
     @Override

@@ -43,10 +43,11 @@
                         android:layout_height="20px"
                         android:id="@+id/space2" android:layout_gravity="center"/>
                 <Button
+                        android:id="@+id/Add_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/button_add"
-                        android:onClick="add_wire"/>
+                        />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
