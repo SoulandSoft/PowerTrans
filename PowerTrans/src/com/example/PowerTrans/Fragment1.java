@@ -32,6 +32,9 @@ public class Fragment1 extends Fragment {
     }
 
 
+    //Handling section
+
+    // main handling switcher
     public void Click(View v){
 
     switch (v.getId()) {
@@ -45,6 +48,7 @@ public class Fragment1 extends Fragment {
         }
     }
 
+    // Custom handling methods
     public void add_wire(View view){
     Log.d(LOG_TAG, "Add Wire");
     LinearLayout L = (LinearLayout)lInflater.inflate(R.layout.buttons,null);
