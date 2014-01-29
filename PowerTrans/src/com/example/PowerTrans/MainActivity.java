@@ -24,12 +24,18 @@ public class MainActivity extends FragmentActivity {
         if (savedInstanceState != null) {
         myFragment = (Fragment1) getSupportFragmentManager().findFragmentById(R.id.myFragment);
     }
-        else {
-        myFragment = new Fragment1();
-        getSupportFragmentManager().beginTransaction().add(R.id.layout1, myFragment).commit();
-        }
+       // else {
+       // myFragment = new Fragment1();
+       // getSupportFragmentManager().beginTransaction().add(R.id.layout1, myFragment).commit();
+       // }
 
     }
+
+     protected void onResume(){
+         super.onResume();
+      myFragment  = (Fragment1)getSupportFragmentManager().findFragmentById(R.id.myFragment);
+      Log.d(LOG_TAG, "On resume");
+     }
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -65,6 +71,7 @@ public class MainActivity extends FragmentActivity {
 
     public void Fragment1_Click(View view){
         Log.d(LOG_TAG, "My fragment clickcall");
+
         myFragment.Click(view);
     }
 
