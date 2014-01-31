@@ -16,6 +16,11 @@
  android:id="@+id/myFragment">
 
 </fragment>
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Calculate"
+            android:id="@+id/calculate_button"/>
 
 </LinearLayout>
 
