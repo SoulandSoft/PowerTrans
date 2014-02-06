@@ -11,4 +11,5 @@
     <string name="item3">Item3</string>
     <string name="Voltage_caption">Voltage,V</string>
     <string name="Current_caption">Current,A</string>
+    <string name="Primary_coil_caption">Primary Coil</string>
 </resources>

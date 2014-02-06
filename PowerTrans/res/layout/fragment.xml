@@ -15,6 +15,37 @@
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content" android:id="@+id/layout2">
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+                <Space
+                        android:layout_width="20px"
+                        android:layout_height="20px"
+                        android:id="@+id/space4"/>
+                <EditText
+                        android:layout_width="65dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/Input_Voltage_edit" android:numeric="integer"/>
+                <Space
+                        android:layout_width="20px"
+                        android:layout_height="20px"
+                        android:id="@+id/space3"/>
+                <TextView
+                        android:layout_width="65dp"
+                        android:layout_height="wrap_content"
+                        android:text="New Text"
+                        android:id="@+id/textView1"/>
+                <Space
+                        android:layout_width="20px"
+                        android:layout_height="20px"
+                        android:id="@+id/space5"/>
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Primary_coil_caption"
+                        android:id="@+id/textView" android:gravity="center"/>
+            </LinearLayout>
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                           xmlns:tools="http://schemas.android.com/tools"
                           android:layout_width="match_parent"
@@ -46,7 +77,7 @@
                         android:id="@+id/space2" android:layout_gravity="center"/>
                 <Button
                         android:id="@+id/Add_button"
-                        android:layout_width="wrap_content"
+                        android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/button_add"
                         android:onClick="Fragment1_Click"
