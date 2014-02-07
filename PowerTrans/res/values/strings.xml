@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">PowerTrans</string>
     <string name="edit_message">Enter a message</string>
-    <string name="button_add">Add Wire</string>
+    <string name="button_add">Add 2-ry Coil</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="hello_world">Hello world!</string>
