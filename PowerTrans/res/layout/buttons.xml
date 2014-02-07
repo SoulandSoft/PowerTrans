@@ -36,13 +36,6 @@
             android:layout_width="20px"
             android:layout_height="20px"
             android:id="@+id/space2" android:layout_gravity="center_horizontal"/>
-    <Button xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/add_wire_button"
-        style="?android:attr/buttonStyleSmall"
-        android:text="Upd"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_weight="1"/>
 
     <Button xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/Remove_button"
@@ -51,6 +44,6 @@
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:onClick="Fragment1_Click"
-            android:layout_weight="1"/>
+            />
 
 </LinearLayout>

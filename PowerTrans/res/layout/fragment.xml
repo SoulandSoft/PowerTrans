@@ -26,7 +26,8 @@
                 <EditText
                         android:layout_width="65dp"
                         android:layout_height="wrap_content"
-                        android:id="@+id/Input_Voltage_edit" android:numeric="integer"/>
+                        android:id="@+id/Input_Voltage_edit" android:numeric="integer"
+                        android:inputType="numberDecimal"/>
                 <Space
                         android:layout_width="20px"
                         android:layout_height="20px"
@@ -34,7 +35,7 @@
                 <TextView
                         android:layout_width="65dp"
                         android:layout_height="wrap_content"
-                        android:id="@+id/textView1" android:password="true"/>
+                        android:id="@+id/textView1" android:password="false"/>
                 <Space
                         android:layout_width="20px"
                         android:layout_height="20px"
