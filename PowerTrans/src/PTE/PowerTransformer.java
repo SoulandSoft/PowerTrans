@@ -27,6 +27,15 @@ public class PowerTransformer {
                 if (power > 5.0 && power < 15.0) {
                     Bmax = 1.2;
                 }
+                else if(power > 15.0 && power < 50){
+                    Bmax=1.3;
+                }
+                else if (power > 50 && power < 300){
+                    Bmax=1.35;
+                }
+                else if (power > 300 && power < 1000){
+                    Bmax= 1.35 - 0.15*(power - 300.0)/700.0;    // varies from 1.35 for 300 to  1.2 for 1000
+                }
                 break;
             case Straight:
                 break;
