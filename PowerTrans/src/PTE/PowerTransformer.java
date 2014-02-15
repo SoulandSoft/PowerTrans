@@ -1,16 +1,14 @@
 package PTE;
 
-
 import java.util.ArrayList;
 
-
 public class PowerTransformer {
-    enum CoreType {Shield, Straight, Toroid}
+    enum Construction_Type {Shell, Core, Toroid}
 
     private Coil primary;                           // Primary coil is only one.
     private ArrayList<Coil> secondaries;            // Secondary coils may by multiple.
     private double power;
-
+    private Construction_Type core;
 
     public double getPower() {
         power = 0;
@@ -20,27 +18,43 @@ public class PowerTransformer {
         return power;
     }
 
-    public double getBmax(double power, CoreType core) {
+    public double getBmax(double power) {
         double Bmax = 0;
         switch (core) {
-            case Shield:
-                if (power > 5.0 && power < 15.0) {
-                    Bmax = 1.2;
-                }
-                else if(power > 15.0 && power < 50){
-                    Bmax=1.3;
-                }
-                else if (power > 50 && power < 300){
-                    Bmax=1.35;
-                }
-                else if (power > 300 && power < 1000){
-                    Bmax= 1.35 - 0.15*(power - 300.0)/700.0;    // varies from 1.35 for 300 to  1.2 for 1000
+
+            case Shell:
+                if (power >= 5.0 && power < 15.0) {
+                    Bmax = 1.1 + 0.2 * (power - 5) / 10.0;                  // varies from 1.3 on 50 to  1.35 on 150
+                } else if (power >= 15.0 && power < 50.0) {
+                    Bmax = 1.3;
+                } else if (power >= 50.0 && power < 150.0) {
+                    Bmax = 1.3 + 0.05 * (power - 50) / 100.0;               // varies from 1.3 on 50 to  1.35 on 150
+                } else if (power >= 150.0 && power < 300.0) {
+                    Bmax = 1.35;
+                } else if (power >= 300.0 && power <= 1000.0) {
+                    Bmax = 1.35 - 0.15 * (power - 300.0) / 700.0;         // varies from 1.35 on 300 to  1.2 on 1000
                 }
                 break;
-            case Straight:
+
+            case Core:
+                if (power >= 5.0 && power < 15.0) {
+                    Bmax = 1.55;
+                } else if (power >= 15 && power <= 1000.0) {
+                    Bmax = 1.65;
+                }
                 break;
+
             case Toroid:
+                if (power >= 5.0 && power < 150.0) {
+                    Bmax = 1.7;
+                } else if (power >= 150.0 && power < 300.0) {
+                    Bmax = 1.65;
+                } else if (power >= 300.0 && power <= 1000.0) {
+                    Bmax = 1.6;
+                }
                 break;
+
+
             default:
                 break;
         }
@@ -48,4 +62,50 @@ public class PowerTransformer {
         return Bmax;
     }
 
+    public double getJ(double power) {
+        double J = 0;
+        switch (core) {
+            case Shell:
+                if (power >= 5.0 && power < 15.0) {
+                    J = 3.9 - 0.9 * (power - 5) / 10.0;                 // varies from 3.9 on 5 to  3.0 on 15
+                } else if (power >= 15.0 && power < 50.0) {
+                    J = 3.0 - 0.6 * (power - 15.0) / 35.0;               // varies from 3.0 jn 15 to 2.4 on 50
+                } else if (power >= 50.0 && power < 150.0) {
+                    J = 2.4 - 0.4 * (power - 50) / 100.0;               // varies from 2.4 on 50 to  2.0 on 150
+                } else if (power >= 150.0 && power < 300.0) {
+                    J = 2.0 - 0.3 * (power - 150) / 150;                  // varies form 2.0 on 150 to 1.7 on 300
+                } else if (power >= 300.0 && power <= 1000.0) {
+                    J = 1.7 - 0.3 * (power - 300.0) / 700.0;            // varies from 1.7 on 300 to  1.4 on 1000
+                }
+                break;
+
+            case Core:
+                if (power >= 5.0 && power < 15.0) {
+                    J = 3.8 - 0.3 * (power - 5) / 10.0;                 // varies from 3.9 on 5 to  3.0 on 15
+                } else if (power >= 15.0 && power < 50.0) {
+                    J = 3.5 - 0.8 * (power - 15.0) / 35.0;               // varies from 3.0 jn 15 to 2.4 on 50
+                } else if (power >= 50.0 && power < 150.0) {
+                    J = 2.7 - 0.3 * (power - 50) / 100.0;               // varies from 2.4 on 50 to  2.0 on 150
+                } else if (power >= 150.0 && power < 300.0) {
+                    J = 2.4 - 0.1 * (power - 150) / 150;                  // varies form 2.0 on 150 to 1.7 on 300
+                } else if (power >= 300.0 && power <= 1000.0) {
+                    J = 1.3 - 0.5 * (power - 300.0) / 700.0;            // varies from 1.7 on 300 to  1.4 on 1000
+                }
+                break;
+
+            case Toroid:
+                if (power >= 5.0 && power < 50.0) {
+                    J = 5.0 - 0.5 * (power - 5) / 45.0;                 // varies from 5.0 on 5 to  4.5 on 50
+                } else if (power >= 50.0 && power < 150.0) {
+                    J = 4.5 - 1.0 * (power - 50) / 100.0;               // varies from 4.5 on 50 to  3.5 on 150
+                } else if (power >= 150.0 && power < 300.0) {
+                    J = 3.5;
+                } else if (power >= 300.0 && power <= 1000.0) {
+                    J = 3.0;
+                }
+                break;
+        }
+
+        return J;
+    }
 }
