@@ -126,10 +126,28 @@ public class PowerTransformer {
                     kpd = 0.93 + 0.03 * (power - 300.0) / 700.0;
                 }
                 break;
+            case Core:
+                if (power >= 2.0 && power < 15.0) {
+                    kpd = 0.5 + 0.1 * (power - 2.0) / 13.0;
+                } else if (power >= 15.0 && power < 50.0) {
+                    kpd = 0.6 + 0.2 * (power - 15.0) / 35.0;
+                } else if (power >= 50.0 && power < 150.0) {
+                    kpd = 0.8 + 0.1 * (power - 50) / 100.0;
+                } else if (power >= 150.0 && power < 300.0) {
+                    kpd = 0.9 + 0.03 * (power - 150) / 150;
+                } else if (power >= 300.0 && power <= 1000.0) {
+                    kpd = 0.93 + 0.03 * (power - 300.0) / 700.0;
+                }
 
         }
         return kpd;
     }
+
+    public double get_CosFi(){
+        double CosFi=0;
+        return CosFi;
+    }
     // Kzok (Window copper filling) = 0.3
     // Kst  (Steel filling ) = 0.9
+
 }
