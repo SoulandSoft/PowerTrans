@@ -6,8 +6,8 @@ public class PowerTransformer {
 
     enum Construction_Type {Shell, Core, Toroid}
     // constants
-    final double Kzok = 0.3;
-    final double Kst = 0.9;
+    public static final double Kzok = 0.3;
+    public static final double Kst = 0.9;
 
     private Coil primary;                           // Primary coil is only one.
     private ArrayList<Coil> secondaries;            // Secondary coils may by multiple.
