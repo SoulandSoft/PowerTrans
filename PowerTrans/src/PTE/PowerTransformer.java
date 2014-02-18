@@ -3,24 +3,29 @@ package PTE;
 import java.util.ArrayList;
 
 public class PowerTransformer {
+
     enum Construction_Type {Shell, Core, Toroid}
+    // constants
+    final double Kzok = 0.3;
+    final double Kst = 0.9;
 
     private Coil primary;                           // Primary coil is only one.
     private ArrayList<Coil> secondaries;            // Secondary coils may by multiple.
     private double power;
     private Construction_Type core;
+    private double SstSok;
 
     public double get_Power() {
         power = 0;
-        for (Coil c : secondaries) {
+        for (Coil c : secondaries){
             power += c.getPower();
         }
         return power;
     }
 
-    // Magic numbers!!!
-    public double get_Bmax(double power) {
+    public double get_Bmax() {
         double Bmax = 0;
+        get_Power();
         switch (core) {
 
             case Shell:
@@ -126,28 +131,46 @@ public class PowerTransformer {
                     kpd = 0.93 + 0.03 * (power - 300.0) / 700.0;
                 }
                 break;
-            case Core:
-                if (power >= 2.0 && power < 15.0) {
-                    kpd = 0.5 + 0.1 * (power - 2.0) / 13.0;
-                } else if (power >= 15.0 && power < 50.0) {
-                    kpd = 0.6 + 0.2 * (power - 15.0) / 35.0;
-                } else if (power >= 50.0 && power < 150.0) {
-                    kpd = 0.8 + 0.1 * (power - 50) / 100.0;
-                } else if (power >= 150.0 && power < 300.0) {
-                    kpd = 0.9 + 0.03 * (power - 150) / 150;
-                } else if (power >= 300.0 && power <= 1000.0) {
-                    kpd = 0.93 + 0.03 * (power - 300.0) / 700.0;
-                }
 
+            case Core:    // Same as Toroid, because they are taped
+            case Toroid:
+                if (power >= 2.0 && power < 50.0) {
+                    kpd = 0.76 + 0.11 * (power - 2.0) / 48.0;
+                } else if (power >= 50.0 && power < 150.0) {
+                    kpd = 0.88 + 0.04 * (power - 50) / 100.0;
+                } else if (power >= 150.0 && power < 300.0) {
+                    kpd = 0.92 + 0.03 * (power - 150) / 150;
+                } else if (power >= 300.0 && power <= 1000.0) {
+                    kpd = 0.96;
+                }
+                break;
         }
         return kpd;
     }
 
     public double get_CosFi(){
         double CosFi=0;
+        get_Power();
+                if (power >= 2.0 && power < 15.0) {
+                    CosFi = 0.85 + 0.05 * (power - 2.0) / 13.0;
+                } else if (power >= 50.0 && power < 150.0) {
+                    CosFi = 0.9 + 0.03 * (power - 50) / 100.0;
+                } else if (power >= 150.0 && power < 300.0) {
+                    CosFi = 0.93 + 0.02 * (power - 150) / 150;
+                } else if (power >= 300.0 && power <= 1000.0) {
+                    CosFi = 0.94;
+                }
         return CosFi;
     }
-    // Kzok (Window copper filling) = 0.3
-    // Kst  (Steel filling ) = 0.9
 
+    public double get_I_primary(){
+        primary.setCurrent(get_Power() / ( primary.getVoltage() * get_kpd() *get_CosFi() ));
+        return primary.getCurrent();
+    }
+
+    public double get_SstSok(){
+
+        SstSok = 0.901 * get_Power() / (get_Bmax() * get_J(power) * Kzok * Kst * get_kpd()) ;
+        return SstSok;
+    }
 }
