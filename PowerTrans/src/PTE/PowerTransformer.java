@@ -168,7 +168,7 @@ public class PowerTransformer {
         return primary.getCurrent();
     }
 
-    public double get_SstSok(){
+    public double get_min_SstSok(){
 
         SstSok = 0.901 * get_Power() / (get_Bmax() * get_J(power) * Kzok * Kst * get_kpd()) ;
         return SstSok;
