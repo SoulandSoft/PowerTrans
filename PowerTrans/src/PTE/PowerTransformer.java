@@ -13,7 +13,9 @@ public class PowerTransformer {
     private ArrayList<Coil> secondaries;            // Secondary coils may by multiple.
     private double power;
     private Construction_Type core;
-    private double SstSok;
+    private double min_SstSok;
+    private double Sst;
+    private double Sok;
 
     public double get_Power() {
         power = 0;
@@ -163,14 +165,26 @@ public class PowerTransformer {
         return CosFi;
     }
 
-    public double get_I_primary(){
+    public double calc_I_primary(){
         primary.setCurrent(get_Power() / ( primary.getVoltage() * get_kpd() *get_CosFi() ));
         return primary.getCurrent();
     }
 
-    public double get_min_SstSok(){
+    public double calc_min_SstSok(){
 
-        SstSok = 0.901 * get_Power() / (get_Bmax() * get_J(power) * Kzok * Kst * get_kpd()) ;
-        return SstSok;
+        min_SstSok = 0.901 * get_Power() / (get_Bmax() * get_J(power) * Kzok * Kst * get_kpd()) ;
+        return min_SstSok;
+    }
+
+    public double calc_N(double U){
+        double N = 45.0*U/(get_Bmax() * Sst);
+        return N;
+    }
+
+    public void set_Sst(double S){
+        Sst = S;
+    }
+    public void set_Sok(double S){
+        Sok = S;
     }
 }
