@@ -70,7 +70,7 @@ public class PowerTransformer {
         return Bmax;
     }
 
-    public double get_J(double power) {
+    public double get_J() {
         double J = 0;
         switch (core) {
             case Shell:
@@ -172,13 +172,14 @@ public class PowerTransformer {
 
     public double calc_min_SstSok(){
 
-        min_SstSok = 0.901 * get_Power() / (get_Bmax() * get_J(power) * Kzok * Kst * get_kpd()) ;
+        min_SstSok = 0.901 * get_Power() / (get_Bmax() * get_J() * Kzok * Kst * get_kpd()) ;
         return min_SstSok;
     }
 
-    public double calc_N(double U){
-        double N = 45.0*U/(get_Bmax() * Sst);
-        return N;
+    public void  calc_secondaries(){
+         for (Coil c : secondaries){
+            c.calculate(get_Bmax(), get_J(), Sst);
+        }
     }
 
     public void set_Sst(double S){
