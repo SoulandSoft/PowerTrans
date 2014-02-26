@@ -17,6 +17,7 @@
 
             android:name="com.example.PowerTrans.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
+            android:windowSoftInputMode="stateHidden"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
