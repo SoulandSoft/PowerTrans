@@ -9,8 +9,10 @@ public class Coil {
     private double wire_diameter;            // Diameter of wire    (computable)
     private double power;                   // Power of coil       (computable)
 
-    //Constructors
-    public Coil(double v, double cur) {
+
+
+
+    public void update(double v, double cur){
         setVoltage(v);
         setCurrent(cur);
         setPower(getVoltage() * getCurrent());

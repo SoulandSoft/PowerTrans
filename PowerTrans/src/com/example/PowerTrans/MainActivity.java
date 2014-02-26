@@ -70,7 +70,7 @@ public class MainActivity extends FragmentActivity {
 	}
 
     public void Fragment1_Click(View view){
-        Log.d(LOG_TAG, "My fragment clickcall");
+        Log.d(LOG_TAG, "My fragment click call");
 
         myFragment.Click(view);
     }

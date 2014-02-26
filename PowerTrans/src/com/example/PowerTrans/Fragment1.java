@@ -1,5 +1,6 @@
 package com.example.PowerTrans;
 
+import PTE.PowerTransformer;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,6 +15,7 @@ public class Fragment1 extends Fragment {
     final String LOG_TAG = "myLogs";
     public LinearLayout lLayout;
     public LayoutInflater lInflater;
+    private PowerTransformer Pt;
 
     @Override
     public void onAttach(Activity activity) {
@@ -60,6 +62,8 @@ public class Fragment1 extends Fragment {
         Log.d(LOG_TAG, "Remove Wire");
         LinearLayout fl=(LinearLayout) view.getParent();
         LinearLayout ll=(LinearLayout) fl.getParent();
-        ll.removeViewAt(ll.indexOfChild(fl));
+        int ind = ll.indexOfChild(fl);
+
+        ll.removeViewAt(ind);
     }
  }
