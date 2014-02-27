@@ -63,7 +63,7 @@ public class Fragment1 extends Fragment {
         LinearLayout fl=(LinearLayout) view.getParent();
         LinearLayout ll=(LinearLayout) fl.getParent();
         int ind = ll.indexOfChild(fl);
-
         ll.removeViewAt(ind);
+        Pt.remove_secondary(ind-2);
     }
  }
