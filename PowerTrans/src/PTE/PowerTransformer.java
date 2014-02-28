@@ -17,6 +17,14 @@ public class PowerTransformer {
     private double Sst;
     private double Sok;
 
+    public PowerTransformer(){
+        core= Construction_Type.Shell;
+        primary = new Coil();
+        primary.setVoltage(0);
+        secondaries = new ArrayList<Coil>();
+        power=0;
+    }
+
     public double get_Power() {
         power = 0;
         for (Coil c : secondaries){
@@ -192,8 +200,8 @@ public class PowerTransformer {
     public void remove_secondary(int index){
         secondaries.remove(index);
     }
-    public void add_secondary(){
-        Coil c = new Coil();
+    public void add_secondary(Coil c){
+
         secondaries.add(c);
     }
 }

@@ -1,5 +1,6 @@
 package com.example.PowerTrans;
 
+import PTE.Coil;
 import PTE.PowerTransformer;
 import android.app.Activity;
 import android.os.Bundle;
@@ -15,7 +16,7 @@ public class Fragment1 extends Fragment {
     final String LOG_TAG = "myLogs";
     public LinearLayout lLayout;
     public LayoutInflater lInflater;
-    private PowerTransformer Pt;
+    public PowerTransformer Pt;
 
     @Override
     public void onAttach(Activity activity) {
@@ -25,6 +26,7 @@ public class Fragment1 extends Fragment {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Pt = new PowerTransformer();
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -56,6 +58,8 @@ public class Fragment1 extends Fragment {
     LinearLayout L = (LinearLayout)lInflater.inflate(R.layout.buttons,null);
     LinearLayout In = (LinearLayout)lLayout.findViewById(R.id.layout2);
     In.addView(L);
+        Coil nc = new Coil();
+    Pt.add_secondary(nc);
     }
 
     public void remove_wire(View view){
