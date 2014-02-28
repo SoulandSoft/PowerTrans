@@ -18,12 +18,6 @@
 </fragment>
 
 
-    <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Calculate"
-            android:id="@+id/calculate_button" android:layout_gravity="top"/>
-
 </LinearLayout>
 
 
