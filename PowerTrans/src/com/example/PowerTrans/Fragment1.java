@@ -58,8 +58,8 @@ public class Fragment1 extends Fragment {
     LinearLayout L = (LinearLayout)lInflater.inflate(R.layout.buttons,null);
     LinearLayout In = (LinearLayout)lLayout.findViewById(R.id.layout2);
     In.addView(L);
-        Coil nc = new Coil();
-    Pt.add_secondary(nc);
+    Pt.add_secondary();
+
     }
 
     public void remove_wire(View view){
@@ -67,7 +67,7 @@ public class Fragment1 extends Fragment {
         LinearLayout fl=(LinearLayout) view.getParent();
         LinearLayout ll=(LinearLayout) fl.getParent();
         int ind = ll.indexOfChild(fl);
-        ll.removeViewAt(ind);
         Pt.remove_secondary(ind-2);
+        ll.removeViewAt(ind);
     }
  }

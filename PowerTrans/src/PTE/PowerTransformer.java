@@ -193,6 +193,7 @@ public class PowerTransformer {
     public void set_Sst(double S){
         Sst = S;
     }
+
     public void set_Sok(double S){
         Sok = S;
     }
@@ -200,8 +201,9 @@ public class PowerTransformer {
     public void remove_secondary(int index){
         secondaries.remove(index);
     }
-    public void add_secondary(Coil c){
 
-        secondaries.add(c);
+    public void add_secondary(){
+
+        secondaries.add(new Coil());
     }
 }
