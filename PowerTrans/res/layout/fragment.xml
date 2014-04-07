@@ -10,7 +10,7 @@
     <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/scrollView1" android:layout_weight="100">
+            android:id="@+id/scrollView1" android:layout_weight="100" android:fillViewport="false">
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
@@ -33,18 +33,25 @@
                         android:layout_height="20px"
                         android:id="@+id/space3"/>
                 <TextView
-                        android:layout_width="65dp"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/textView1" android:password="false"/>
-                <Space
-                        android:layout_width="20px"
-                        android:layout_height="20px"
-                        android:id="@+id/space5"/>
-                <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/Primary_coil_caption"
-                        android:id="@+id/textView" android:gravity="center"/>
+                        android:id="@+id/PrimaryCoil_cap" android:gravity="center"/>
+                <Space android:layout_width="10px" android:layout_height="20px" android:id="@+id/space6"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/TypeCaption" android:password="false" android:text="@string/Type_caption"
+                        android:gravity="center"/>
+                <Space android:layout_width="10px" android:layout_height="fill_parent" android:id="@+id/space5"
+                       android:layout_gravity="top"/>
+                <Spinner
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/TypeList"
+                        android:id="@+id/spinner"
+                        android:spinnerMode="dropdown"/>
+
             </LinearLayout>
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                           xmlns:tools="http://schemas.android.com/tools"

@@ -12,5 +12,13 @@
     <string name="Voltage_caption">Voltage,V</string>
     <string name="Current_caption">Current,A</string>
     <string name="Primary_coil_caption">Primary Coil</string>
+    <string name="Type_caption">Type</string>
     <string name="Calculate_caption">Calculate</string>
+
+    <string-array name="TypeList">
+        <item>Core</item>
+        <item>Shell</item>
+        <item>Toroid</item>
+    </string-array>
+
 </resources>
