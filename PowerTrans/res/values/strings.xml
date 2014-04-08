@@ -16,8 +16,8 @@
     <string name="Calculate_caption">Calculate</string>
 
     <string-array name="TypeList">
-        <item>Core</item>
         <item>Shell</item>
+        <item>Core</item>
         <item>Toroid</item>
     </string-array>
 

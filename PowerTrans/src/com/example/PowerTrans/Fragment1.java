@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 
 public class Fragment1 extends Fragment {
 
@@ -35,7 +36,6 @@ public class Fragment1 extends Fragment {
         return lLayout;
     }
 
-
     //Handling section
 
     // main handling switcher
@@ -48,6 +48,10 @@ public class Fragment1 extends Fragment {
         case R.id.Remove_button:
             Log.d(LOG_TAG, "Remove Wire switch");
             remove_wire(v);
+            break;
+        case R.id.Calculate_button:
+            Log.d(LOG_TAG, "Calculate");
+            calculate();
             break;
         }
     }
@@ -69,5 +73,13 @@ public class Fragment1 extends Fragment {
         int ind = ll.indexOfChild(fl);
         Pt.remove_secondary(ind-2);
         ll.removeViewAt(ind);
+    }
+
+    public void calculate(){
+
+       // get Transformer type from spinner
+       Spinner S =  (Spinner)lLayout.findViewById(R.id.TypeSpinner);
+       //S.getSelectedItem().toString();
+       Log.d(LOG_TAG," Index" + S.getSelectedItemPosition());
     }
  }

@@ -49,8 +49,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:entries="@array/TypeList"
-                        android:id="@+id/spinner"
-                        android:spinnerMode="dropdown"/>
+                        android:id="@+id/TypeSpinner"
+                        android:spinnerMode="dropdown" android:focusable="false"/>
 
             </LinearLayout>
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -96,5 +96,9 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:text="@string/Calculate_caption"
-            android:id="@+id/Btn_Calculate" android:layout_weight="1"/>
+            android:id="@+id/Calculate_button"
+            android:layout_weight="1"
+            android:onClick="Fragment1_Click"
+            android:clickable="true"
+            />
 </LinearLayout>
