@@ -103,9 +103,13 @@ public class Fragment1 extends Fragment {
        //Get secondaries
        LinearLayout L = (LinearLayout)lLayout.findViewById(R.id.layout2);
        int c =  L.getChildCount();
-        if (c > 3){
-            for (int i= 3;  i<c;i++){
-            Log.d(LOG_TAG, "Secondary add layout " + (i-3));
+        if (c > 3) {
+            for (int i = 3; i < c; i++) {
+                E = (EditText) L.getChildAt(i).findViewById(R.id.Current_input);
+                Pt.secondaries.get(i - 3).setCurrent(Double.parseDouble(E.getText().toString()));
+                E = (EditText) L.getChildAt(i).findViewById(R.id.Voltage_input);
+                Pt.secondaries.get(i - 3).setVoltage(Double.parseDouble(E.getText().toString()));
+                Log.d(LOG_TAG, "Secondary add layout " + (i - 3));
             }
         } else Log.d(LOG_TAG, "No secondaries!!");
 

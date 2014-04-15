@@ -11,12 +11,12 @@
             android:layout_height="20px"
             android:id="@+id/space" android:layout_gravity="center_horizontal"/>
     <EditText
-            android:text=""
+            android:text="0"
             android:inputType="numberDecimal"
-            android:id="@+id/edit_I"
+            android:id="@+id/Current_input"
             android:layout_width="65dp"
             android:layout_height="40dp"
-           />
+            android:gravity="center"/>
 
     <Space
             android:layout_width="20px"
@@ -24,12 +24,12 @@
             android:id="@+id/space1"
             android:layout_gravity="center_horizontal|top"/>
     <EditText
-            android:text=""
+            android:text="0"
             android:inputType="numberDecimal"
-            android:id="@+id/edit_V"
+            android:id="@+id/Voltage_input"
             android:layout_width="65dp"
             android:layout_height="40dp"
-            android:layout_gravity="left"/>
+            android:layout_gravity="left" android:gravity="center"/>
 
 
     <Space
