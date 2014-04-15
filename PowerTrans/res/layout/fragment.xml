@@ -26,7 +26,7 @@
                 <EditText
                         android:layout_width="65dp"
                         android:layout_height="wrap_content"
-                        android:id="@+id/Input_Voltage_edit" android:numeric="integer"
+                        android:id="@+id/PrimaryVoltage_input" android:numeric="integer"
                         android:inputType="numberDecimal"/>
                 <Space
                         android:layout_width="20px"
@@ -52,6 +52,40 @@
                         android:id="@+id/TypeSpinner"
                         android:spinnerMode="dropdown" android:focusable="false"/>
 
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+                <Space
+                        android:layout_width="20px"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/space7"/>
+                <EditText
+                        android:layout_width="65dp"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:id="@+id/AB_input" android:numeric="decimal" android:inputType="numberDecimal"
+                        android:gravity="center|center_vertical"/>
+                <Space
+                        android:layout_width="20px"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/space8"/>
+                <EditText
+                        android:layout_width="65dp"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:id="@+id/CD_input" android:phoneNumber="true" android:numeric="decimal"
+                        android:gravity="center"/>
+                <Space
+                        android:layout_width="20px"
+                        android:layout_height="20px"
+                        android:id="@+id/space9" android:layout_gravity="center_horizontal|bottom"/>
+                <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-What's that?"
+                        android:id="@+id/button" android:layout_gravity="center_horizontal|bottom"/>
             </LinearLayout>
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                           xmlns:tools="http://schemas.android.com/tools"
@@ -90,40 +124,7 @@
                         android:onClick="Fragment1_Click"
                         android:clickable="true"/>
             </LinearLayout>
-            <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent">
-                <Space
-                        android:layout_width="20px"
-                        android:layout_height="fill_parent"
-                        android:id="@+id/space7"/>
-                <EditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="AxB"
-                        android:id="@+id/editText" android:numeric="decimal" android:inputType="numberDecimal"
-                        android:gravity="center|center_vertical"/>
-                <Space
-                        android:layout_width="20px"
-                        android:layout_height="fill_parent"
-                        android:id="@+id/space8"/>
-                <EditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="CxD"
-                        android:id="@+id/editText1" android:phoneNumber="false" android:numeric="decimal"
-                        android:gravity="center"/>
-                <Space
-                        android:layout_width="20px"
-                        android:layout_height="20px"
-                        android:id="@+id/space9" android:layout_gravity="center_horizontal|bottom"/>
-                <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="-What's that?"
-                        android:id="@+id/button" android:layout_gravity="center_horizontal|bottom"/>
-            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
     <Button

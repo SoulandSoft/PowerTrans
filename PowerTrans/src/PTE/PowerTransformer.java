@@ -10,8 +10,8 @@ public class PowerTransformer {
     public static final double Kzok = 0.3;
     public static final double Kst = 0.9;
 
-    private Coil primary;                           // Primary coil is only one.
-    private ArrayList<Coil> secondaries;            // Secondary coils may by multiple.
+    public Coil primary;                           // Primary coil is only one.
+    public ArrayList<Coil> secondaries;            // Secondary coils may by multiple.
     private double power;
     private Construction_Type core;
     private double min_SstSok;
@@ -219,8 +219,8 @@ public class PowerTransformer {
         secondaries.add(new Coil());
     }
 
-    public void setCore(int index){
-        switch (index) {
+    public void setCore(int ind){
+        switch (ind) {
             case 0: core = Construction_Type.Shell;
                 break;
             case 1: core = Construction_Type.Core;

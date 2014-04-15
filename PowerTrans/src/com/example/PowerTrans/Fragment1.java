@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
@@ -72,17 +73,33 @@ public class Fragment1 extends Fragment {
         LinearLayout ll=(LinearLayout) fl.getParent();
         int ind = ll.indexOfChild(fl);
 
-        Pt.remove_secondary(ind-2);
+        Pt.remove_secondary(ind-3);
         ll.removeViewAt(ind);
     }
 
     public void calculate(){
 
-       // get Transformer type from spinner
-       Spinner S =  (Spinner)lLayout.findViewById(R.id.TypeSpinner);
-       //S.getSelectedItem().toString();
-       Log.d(LOG_TAG," Index " + S.getSelectedItemPosition());
-       Pt.setCore(S.getSelectedItemPosition());
+       submit();
        Pt.calculate();
     }
+    public void submit(){
+
+        // get Transformer type from spinner
+       Spinner S =  (Spinner)lLayout.findViewById(R.id.TypeSpinner);
+       Log.d(LOG_TAG," Index " + S.getSelectedItemPosition());
+       Pt.setCore(S.getSelectedItemPosition());
+       // Sok
+       EditText E = (EditText)lLayout.findViewById(R.id.AB_input);
+       Pt.set_Sok(Double.parseDouble(E.getText().toString()));
+       // Sst
+       E = (EditText)lLayout.findViewById(R.id.CD_input);
+       Pt.set_Sst(Double.parseDouble(E.getText().toString()));
+
+       // Primary Voltage
+       E = (EditText)lLayout.findViewById(R.id.PrimaryVoltage_input);
+       Pt.primary.setVoltage(Double.parseDouble(E.getText().toString()));
+
+
+    }
+
  }
