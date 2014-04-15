@@ -26,8 +26,10 @@
                 <EditText
                         android:layout_width="65dp"
                         android:layout_height="wrap_content"
-                        android:id="@+id/PrimaryVoltage_input" android:numeric="integer"
-                        android:inputType="numberDecimal"/>
+                        android:id="@+id/PrimaryVoltage_input"
+                        android:inputType="numberDecimal" android:text="0"
+                        android:numeric="decimal"
+                        android:gravity="center" />
                 <Space
                         android:layout_width="20px"
                         android:layout_height="20px"
@@ -75,7 +77,7 @@
                         android:layout_width="65dp"
                         android:layout_height="wrap_content"
                         android:text="0"
-                        android:id="@+id/CD_input" android:phoneNumber="true" android:numeric="decimal"
+                        android:id="@+id/CD_input" android:numeric="decimal"
                         android:gravity="center"/>
                 <Space
                         android:layout_width="20px"

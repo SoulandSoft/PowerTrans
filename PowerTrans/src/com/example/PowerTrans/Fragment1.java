@@ -5,6 +5,7 @@ import PTE.PowerTransformer;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -82,11 +83,11 @@ public class Fragment1 extends Fragment {
        submit();
        Pt.calculate();
     }
+
     public void submit(){
 
         // get Transformer type from spinner
        Spinner S =  (Spinner)lLayout.findViewById(R.id.TypeSpinner);
-       Log.d(LOG_TAG," Index " + S.getSelectedItemPosition());
        Pt.setCore(S.getSelectedItemPosition());
        // Sok
        EditText E = (EditText)lLayout.findViewById(R.id.AB_input);
@@ -99,6 +100,14 @@ public class Fragment1 extends Fragment {
        E = (EditText)lLayout.findViewById(R.id.PrimaryVoltage_input);
        Pt.primary.setVoltage(Double.parseDouble(E.getText().toString()));
 
+       //Get secondaries
+       LinearLayout L = (LinearLayout)lLayout.findViewById(R.id.layout2);
+       int c =  L.getChildCount();
+        if (c > 3){
+            for (int i= 3;  i<c;i++){
+            Log.d(LOG_TAG, "Secondary add layout " + (i-3));
+            }
+        } else Log.d(LOG_TAG, "No secondaries!!");
 
     }
 
