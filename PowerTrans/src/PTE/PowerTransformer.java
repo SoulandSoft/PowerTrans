@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class PowerTransformer {
 
     enum Construction_Type {Shell, Core, Toroid}
+
     // constants
     public static final double Kzok = 0.3;
     public static final double Kst = 0.9;
@@ -17,23 +18,26 @@ public class PowerTransformer {
     private double Sst;
     private double Sok;
 
-    public PowerTransformer(){
-        core= Construction_Type.Shell;
+    public PowerTransformer() {
+
+        core = Construction_Type.Shell;
         primary = new Coil();
         primary.setVoltage(0);
         secondaries = new ArrayList<Coil>();
-        power=0;
+        power = 0;
     }
 
     public double get_Power() {
+
         power = 0;
-        for (Coil c : secondaries){
+        for (Coil c : secondaries) {
             power += c.getPower();
         }
         return power;
     }
 
     public double get_Bmax() {
+
         double Bmax = 0;
         get_Power();
         switch (core) {
@@ -79,6 +83,7 @@ public class PowerTransformer {
     }
 
     public double get_J() {
+
         double J = 0;
         switch (core) {
             case Shell:
@@ -126,6 +131,7 @@ public class PowerTransformer {
     }
 
     public double get_kpd() {
+
         double kpd = 0;
         switch (core) {
             case Shell:
@@ -158,52 +164,74 @@ public class PowerTransformer {
         return kpd;
     }
 
-    public double get_CosFi(){
-        double CosFi=0;
+    public double get_CosFi() {
+
+        double CosFi = 0;
         get_Power();
-                if (power >= 2.0 && power < 15.0) {
-                    CosFi = 0.85 + 0.05 * (power - 2.0) / 13.0;
-                } else if (power >= 50.0 && power < 150.0) {
-                    CosFi = 0.9 + 0.03 * (power - 50) / 100.0;
-                } else if (power >= 150.0 && power < 300.0) {
-                    CosFi = 0.93 + 0.02 * (power - 150) / 150;
-                } else if (power >= 300.0 && power <= 1000.0) {
-                    CosFi = 0.94;
-                }
+        if (power >= 2.0 && power < 15.0) {
+            CosFi = 0.85 + 0.05 * (power - 2.0) / 13.0;
+        } else if (power >= 50.0 && power < 150.0) {
+            CosFi = 0.9 + 0.03 * (power - 50) / 100.0;
+        } else if (power >= 150.0 && power < 300.0) {
+            CosFi = 0.93 + 0.02 * (power - 150) / 150;
+        } else if (power >= 300.0 && power <= 1000.0) {
+            CosFi = 0.94;
+        }
         return CosFi;
     }
 
-    public double calc_I_primary(){
-        primary.setCurrent(get_Power() / ( primary.getVoltage() * get_kpd() *get_CosFi() ));
+    public double calc_I_primary() {
+
+        primary.setCurrent(get_Power() / (primary.getVoltage() * get_kpd() * get_CosFi()));
         return primary.getCurrent();
     }
 
-    public double calc_min_SstSok(){
+    public double calc_min_SstSok() {
 
-        min_SstSok = 0.901 * get_Power() / (get_Bmax() * get_J() * Kzok * Kst * get_kpd()) ;
+        min_SstSok = 0.901 * get_Power() / (get_Bmax() * get_J() * Kzok * Kst * get_kpd());
         return min_SstSok;
     }
 
-    public void  calc_secondaries(){
-         for (Coil c : secondaries){
+    public void calc_secondaries() {
+
+        for (Coil c : secondaries) {
             c.calculate(get_Bmax(), get_J(), Sst);
         }
     }
 
-    public void set_Sst(double S){
+    public void set_Sst(double S) {
+
         Sst = S;
     }
 
-    public void set_Sok(double S){
+    public void set_Sok(double S) {
+
         Sok = S;
     }
 
-    public void remove_secondary(int index){
+    public void remove_secondary(int index) {
+
         secondaries.remove(index);
     }
 
-    public void add_secondary(){
+    public void add_secondary() {
 
         secondaries.add(new Coil());
+    }
+
+    public void setCore(int index){
+        switch (index) {
+            case 0: core = Construction_Type.Shell;
+                break;
+            case 1: core = Construction_Type.Core;
+                break;
+            case 2: core = Construction_Type.Toroid;
+                break;
+            default: break;
+        }
+    }
+    public void calculate() {
+
+
     }
 }

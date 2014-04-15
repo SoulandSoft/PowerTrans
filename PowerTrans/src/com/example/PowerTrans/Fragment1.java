@@ -71,6 +71,7 @@ public class Fragment1 extends Fragment {
         LinearLayout fl=(LinearLayout) view.getParent();
         LinearLayout ll=(LinearLayout) fl.getParent();
         int ind = ll.indexOfChild(fl);
+
         Pt.remove_secondary(ind-2);
         ll.removeViewAt(ind);
     }
@@ -80,6 +81,8 @@ public class Fragment1 extends Fragment {
        // get Transformer type from spinner
        Spinner S =  (Spinner)lLayout.findViewById(R.id.TypeSpinner);
        //S.getSelectedItem().toString();
-       Log.d(LOG_TAG," Index" + S.getSelectedItemPosition());
+       Log.d(LOG_TAG," Index " + S.getSelectedItemPosition());
+       Pt.setCore(S.getSelectedItemPosition());
+       Pt.calculate();
     }
  }
