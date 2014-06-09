@@ -39,7 +39,7 @@ public class PowerTransformer {
     public double get_Bmax() {
 
         double Bmax = 0;
-        get_Power();
+        //get_Power();
         switch (core) {
 
             case Shell:
