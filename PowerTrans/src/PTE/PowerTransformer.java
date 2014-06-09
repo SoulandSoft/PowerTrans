@@ -232,6 +232,7 @@ public class PowerTransformer {
     }
     public void calculate() {
 
+    calc_min_SstSok();
 
     }
 }

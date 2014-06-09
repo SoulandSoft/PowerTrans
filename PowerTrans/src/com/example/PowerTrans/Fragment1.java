@@ -62,7 +62,7 @@ public class Fragment1 extends Fragment {
     public void add_wire(View view){
     Log.d(LOG_TAG, "Add Wire");
     LinearLayout L = (LinearLayout)lInflater.inflate(R.layout.buttons,null);
-    LinearLayout In = (LinearLayout)lLayout.findViewById(R.id.layout2);
+    LinearLayout In = (LinearLayout)lLayout.findViewById(R.id.MainControls);
     In.addView(L);
     Pt.add_secondary();
 
@@ -82,6 +82,7 @@ public class Fragment1 extends Fragment {
 
        submit();
        Pt.calculate();
+       Log.d(LOG_TAG,"Sst * Sok = " + Pt.calc_min_SstSok());
     }
 
     public void submit(){
@@ -101,7 +102,7 @@ public class Fragment1 extends Fragment {
        Pt.primary.setVoltage(Double.parseDouble(E.getText().toString()));
 
        //Get secondaries
-       LinearLayout L = (LinearLayout)lLayout.findViewById(R.id.layout2);
+       LinearLayout L = (LinearLayout)lLayout.findViewById(R.id.MainControls);
        int c =  L.getChildCount();
         if (c > 3) {
             for (int i = 3; i < c; i++) {

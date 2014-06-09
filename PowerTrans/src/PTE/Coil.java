@@ -15,7 +15,7 @@ public class Coil {
     public void update(double v, double cur){
         setVoltage(v);
         setCurrent(cur);
-        setPower(getVoltage() * getCurrent());
+
     }
 
 
@@ -51,11 +51,10 @@ public class Coil {
     }
 
     public double getPower() {
+        power = getCurrent() * getVoltage();
         return power;
     }
 
-    public void setPower(double power) {
-        this.power = power;
-    }
+
 
 }
