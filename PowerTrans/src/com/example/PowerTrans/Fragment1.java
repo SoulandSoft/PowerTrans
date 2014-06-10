@@ -34,76 +34,78 @@ public class Fragment1 extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         lInflater = inflater;
-        lLayout = (LinearLayout)inflater.inflate(R.layout.fragment,null);
+        lLayout = (LinearLayout) inflater.inflate(R.layout.fragment, null);
         return lLayout;
     }
 
     //Handling section
 
     // main handling switcher
-    public void Click(View v){
+    public void Click(View v) {
 
-    switch (v.getId()) {
-        case R.id.Add_button:
-            add_wire(v);
-            break;
-        case R.id.Remove_button:
-            Log.d(LOG_TAG, "Remove Wire switch");
-            remove_wire(v);
-            break;
-        case R.id.Calculate_button:
-            Log.d(LOG_TAG, "Calculate");
-            calculate();
-            break;
+        switch (v.getId()) {
+            case R.id.Add_button:
+                add_wire(v);
+                break;
+            case R.id.Remove_button:
+                Log.d(LOG_TAG, "Remove Wire switch");
+                remove_wire(v);
+                break;
+            case R.id.Calculate_button:
+                Log.d(LOG_TAG, "Calculate");
+                calculate();
+                break;
         }
     }
 
     // Custom handling methods
-    public void add_wire(View view){
-    Log.d(LOG_TAG, "Add Wire");
-    LinearLayout L = (LinearLayout)lInflater.inflate(R.layout.buttons,null);
-    LinearLayout In = (LinearLayout)lLayout.findViewById(R.id.MainControls);
-    In.addView(L);
-    Pt.add_secondary();
+    public void add_wire(View view) {
+        Log.d(LOG_TAG, "Add Wire");
+        LinearLayout L = (LinearLayout) lInflater.inflate(R.layout.buttons, null);
+        LinearLayout In = (LinearLayout) lLayout.findViewById(R.id.MainControls);
+        In.addView(L);
+        Pt.add_secondary();
 
     }
 
-    public void remove_wire(View view){
+    public void remove_wire(View view) {
         Log.d(LOG_TAG, "Remove Wire");
-        LinearLayout fl=(LinearLayout) view.getParent();
-        LinearLayout ll=(LinearLayout) fl.getParent();
+        LinearLayout fl = (LinearLayout) view.getParent();
+        LinearLayout ll = (LinearLayout) fl.getParent();
         int ind = ll.indexOfChild(fl);
 
-        Pt.remove_secondary(ind-3);
+        Pt.remove_secondary(ind - 3);
         ll.removeViewAt(ind);
     }
 
-    public void calculate(){
+    public void calculate() {
 
-       submit();
-       Pt.calculate();
-       Log.d(LOG_TAG,"Sst * Sok = " + Pt.calc_min_SstSok());
+        submit();
+        Pt.calculate();
+        Log.d(LOG_TAG, "Sst * Sok = " + Pt.calc_min_SstSok());
+        Log.d(LOG_TAG, "Power = " + Pt.get_Power());
+        Log.d(LOG_TAG, "Kpd = " + Pt.get_kpd());
     }
 
-    public void submit(){
+    public void submit() {
 
         // get Transformer type from spinner
-       Spinner S =  (Spinner)lLayout.findViewById(R.id.TypeSpinner);
-       Pt.setCore(S.getSelectedItemPosition());
-       // Sok
-       EditText E = (EditText)lLayout.findViewById(R.id.AB_input);
-       Pt.set_Sok(Double.parseDouble(E.getText().toString()));
-       // Sst
-       E = (EditText)lLayout.findViewById(R.id.CD_input);
-       Pt.set_Sst(Double.parseDouble(E.getText().toString()));
+        Spinner S = (Spinner) lLayout.findViewById(R.id.TypeSpinner);
+        Pt.setCore(S.getSelectedItemPosition());
+        // Sok
+        EditText E = (EditText) lLayout.findViewById(R.id.AB_input);
+        Pt.set_Sok(Double.parseDouble(E.getText().toString()));
+        // Sst
+        E = (EditText) lLayout.findViewById(R.id.CD_input);
+        Pt.set_Sst(Double.parseDouble(E.getText().toString()));
 
-       // Primary Voltage
-       E = (EditText)lLayout.findViewById(R.id.PrimaryVoltage_input);
-       Pt.primary.setVoltage(Double.parseDouble(E.getText().toString()));
+        // Primary Voltage
+        E = (EditText) lLayout.findViewById(R.id.PrimaryVoltage_input);
+        Pt.primary.setVoltage(Double.parseDouble(E.getText().toString()));
 
-       //Get secondaries
-       LinearLayout L = (LinearLayout)lLayout.findViewById(R.id.MainControls);
-       int c =  L.getChildCount();
+        //Get secondaries
+        LinearLayout L = (LinearLayout) lLayout.findViewById(R.id.MainControls);
+        int c = L.getChildCount();
         if (c > 3) {
             for (int i = 3; i < c; i++) {
                 E = (EditText) L.getChildAt(i).findViewById(R.id.Current_input);
@@ -116,4 +118,4 @@ public class Fragment1 extends Fragment {
 
     }
 
- }
+}
