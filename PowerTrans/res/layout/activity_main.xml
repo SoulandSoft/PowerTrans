@@ -8,11 +8,11 @@
     android:id="@+id/layout1" android:baselineAligned="false">
 
  <fragment
- android:name="com.example.PowerTrans.Fragment1"
+ android:name="com.example.PowerTrans.MainControls"
   android:layout_width="match_parent"
  android:layout_height="wrap_content"
  android:layout_weight="1"
- class="com.example.PowerTrans.Fragment1"
+ class="com.example.PowerTrans.MainControls"
  android:id="@+id/myFragment">
 
 </fragment>

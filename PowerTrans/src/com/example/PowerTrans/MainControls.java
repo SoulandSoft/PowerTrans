@@ -1,11 +1,9 @@
 package com.example.PowerTrans;
 
-import PTE.Coil;
 import PTE.PowerTransformer;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +12,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
-public class Fragment1 extends Fragment {
+public class MainControls extends Fragment {
 
     final String LOG_TAG = "myLogs";
     public LinearLayout lLayout;
@@ -34,7 +32,7 @@ public class Fragment1 extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         lInflater = inflater;
-        lLayout = (LinearLayout) inflater.inflate(R.layout.fragment, null);
+        lLayout = (LinearLayout) inflater.inflate(R.layout.main_controls, null);
         return lLayout;
     }
 
