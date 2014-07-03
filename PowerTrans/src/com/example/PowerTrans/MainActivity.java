@@ -13,7 +13,7 @@ public class MainActivity extends FragmentActivity {
 
 	public final static String EXTRA_MESSAGE = "com.example.PowerTrans.MESSAGE";
     public LayoutInflater lInflater;
-    public MainControls myFragment;
+    public MainControls mc_fragment;
     final String LOG_TAG = "myLogs";
 
     @Override
@@ -22,7 +22,7 @@ public class MainActivity extends FragmentActivity {
 		setContentView(R.layout.activity_main);
         lInflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         if (savedInstanceState != null) {
-        myFragment = (MainControls) getSupportFragmentManager().findFragmentById(R.id.myFragment);
+        mc_fragment = (MainControls) getSupportFragmentManager().findFragmentById(R.id.mc_fragment);
     }
        // else {
        // myFragment = new MainControls();
@@ -31,9 +31,9 @@ public class MainActivity extends FragmentActivity {
 
     }
 
-     protected void onResume(){
+    protected void onResume(){
          super.onResume();
-      myFragment  = (MainControls)getSupportFragmentManager().findFragmentById(R.id.myFragment);
+      mc_fragment  = (MainControls)getSupportFragmentManager().findFragmentById(R.id.mc_fragment);
       Log.d(LOG_TAG, "On resume");
      }
 
@@ -69,9 +69,9 @@ public class MainActivity extends FragmentActivity {
 	    }
 	}
 
-    public void Fragment1_Click(View view){
+    public void MainControls_Click(View view){
         Log.d(LOG_TAG, "My fragment click call");
-        myFragment.Click(view);
+        mc_fragment.Click(view);
     }
 
 

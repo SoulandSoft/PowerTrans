@@ -13,7 +13,7 @@
  android:layout_height="wrap_content"
  android:layout_weight="1"
  class="com.example.PowerTrans.MainControls"
- android:id="@+id/myFragment">
+ android:id="@+id/mc_fragment">
 
 </fragment>
 

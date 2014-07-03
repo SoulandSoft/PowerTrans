@@ -3,7 +3,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:id="@+id/myFragment"
+              android:id="@+id/mc_fragment"
               android:background="#8800ff00"
               android:layout_height="match_parent">
 
@@ -123,7 +123,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/button_add"
-                        android:onClick="Fragment1_Click"
+                        android:onClick="MainControls_Click"
                         android:clickable="true"/>
             </LinearLayout>
 
@@ -135,7 +135,7 @@
             android:text="@string/Calculate_caption"
             android:id="@+id/Calculate_button"
             android:layout_weight="1"
-            android:onClick="Fragment1_Click"
+            android:onClick="MainControls_Click"
             android:clickable="true"
             />
 </LinearLayout>

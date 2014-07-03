@@ -43,7 +43,7 @@
             android:text="X"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:onClick="Fragment1_Click"
+            android:onClick="MainControls_Click"
             />
 
 </LinearLayout>
