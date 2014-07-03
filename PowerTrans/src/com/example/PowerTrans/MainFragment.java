@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
-public class MainControls extends Fragment {
+public class MainFragment extends Fragment {
 
     public final static String EXTRA_MESSAGE = "com.example.PowerTrans.MESSAGE";
     final String LOG_TAG = "myLogs";
@@ -34,7 +34,7 @@ public class MainControls extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         lInflater = inflater;
-        lLayout = (LinearLayout) inflater.inflate(R.layout.main_controls, null);
+        lLayout = (LinearLayout) inflater.inflate(R.layout.fragment_main, null);
         return lLayout;
     }
 
@@ -60,25 +60,23 @@ public class MainControls extends Fragment {
 
 
     public void sendMessage() {
-        Intent intent = new Intent(getActivity().getApplicationContext(), DisplayMessageActivity.class);
+        Intent intent = new Intent(getActivity().getApplicationContext(), ResultActivity.class);
+        intent.putExtra(EXTRA_MESSAGE, "Huy");
+        startActivity(intent);
         //EditText editText = (EditText) findViewById(R.id.edit_message);
         //String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, "Huy");
-
-
-
         // send :
         // intent.putExtra("PowerTransformer", Pt);
         // recieve
         // Intent i = getIntent();
         // PowerTeansformer pt = (PowerTransformer)i.getSerializableExtra("PowerTransformer");
-        startActivity(intent);
+
     }
 
     // Custom handling methods
     public void add_wire(View view) {
         Log.d(LOG_TAG, "Add Wire");
-        LinearLayout L = (LinearLayout) lInflater.inflate(R.layout.buttons, null);
+        LinearLayout L = (LinearLayout) lInflater.inflate(R.layout.secondary_coil_input, null);
         LinearLayout In = (LinearLayout) lLayout.findViewById(R.id.MainControls);
         In.addView(L);
         Pt.add_secondary();

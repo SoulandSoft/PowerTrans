@@ -3,7 +3,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:id="@+id/mc_fragment"
+              android:id="@+id/mainFragment"
               android:background="#8800ff00"
               android:layout_height="match_parent">
 
@@ -29,7 +29,7 @@
                         android:id="@+id/PrimaryVoltage_input"
                         android:inputType="numberDecimal" android:text="0"
                         android:numeric="decimal"
-                        android:gravity="center" />
+                        android:gravity="center"/>
                 <Space
                         android:layout_width="20px"
                         android:layout_height="20px"

@@ -13,11 +13,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             class="com.example.PowerTrans.MainFragment"
-            android:id="@+id/mainFragment">
+            android:id="@+id/resultFragment">
 
     </fragment>
 
 
 </LinearLayout>
-
-
