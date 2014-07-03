@@ -1,15 +1,15 @@
 package com.example.PowerTrans;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
 
-public class DisplayMessageActivity extends ActionBarActivity {
+public class DisplayMessageActivity extends Activity {
 
     @SuppressLint("NewApi")
     @Override
@@ -17,15 +17,12 @@ public class DisplayMessageActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
 
         // Get the message from the intent
-        // dfdsf
         Intent intent = getIntent();
-        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-
+        String message = intent.getStringExtra(MainControls.EXTRA_MESSAGE);
         // Create the text view
         TextView textView = new TextView(this);
         textView.setTextSize(40);
         textView.setText(message);
-
         // Set the text view as the activity layout
         setContentView(textView);
     }

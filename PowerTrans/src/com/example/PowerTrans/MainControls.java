@@ -2,6 +2,7 @@ package com.example.PowerTrans;
 
 import PTE.PowerTransformer;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -14,6 +15,7 @@ import android.widget.Spinner;
 
 public class MainControls extends Fragment {
 
+    public final static String EXTRA_MESSAGE = "com.example.PowerTrans.MESSAGE";
     final String LOG_TAG = "myLogs";
     public LinearLayout lLayout;
     public LayoutInflater lInflater;
@@ -56,6 +58,23 @@ public class MainControls extends Fragment {
         }
     }
 
+
+    public void sendMessage() {
+        Intent intent = new Intent(getActivity().getApplicationContext(), DisplayMessageActivity.class);
+        //EditText editText = (EditText) findViewById(R.id.edit_message);
+        //String message = editText.getText().toString();
+        intent.putExtra(EXTRA_MESSAGE, "Huy");
+
+
+
+        // send :
+        // intent.putExtra("PowerTransformer", Pt);
+        // recieve
+        // Intent i = getIntent();
+        // PowerTeansformer pt = (PowerTransformer)i.getSerializableExtra("PowerTransformer");
+        startActivity(intent);
+    }
+
     // Custom handling methods
     public void add_wire(View view) {
         Log.d(LOG_TAG, "Add Wire");
@@ -83,6 +102,8 @@ public class MainControls extends Fragment {
         Log.d(LOG_TAG, "Sst * Sok = " + Pt.calc_min_SstSok());
         Log.d(LOG_TAG, "Power = " + Pt.get_Power());
         Log.d(LOG_TAG, "Kpd = " + Pt.get_kpd());
+        sendMessage();
+
     }
 
     public void submit() {

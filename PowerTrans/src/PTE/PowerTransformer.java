@@ -1,8 +1,9 @@
 package PTE;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class PowerTransformer {
+public class PowerTransformer implements Serializable {
 
     enum Construction_Type {Shell, Core, Toroid}
 
