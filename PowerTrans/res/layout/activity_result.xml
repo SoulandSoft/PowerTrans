@@ -12,7 +12,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            class="com.example.PowerTrans.MainFragment"
+            class="com.example.PowerTrans.ResultFragment"
             android:id="@+id/resultFragment">
 
     </fragment>

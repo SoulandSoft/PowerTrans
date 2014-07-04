@@ -59,7 +59,7 @@ public class MainActivity extends FragmentActivity {
         }
     }
 
-    public void MainControls_Click(View view) {
+    public void Click(View view) {
         Log.d(LOG_TAG, "MainFragment fragment click");
         mainFragment.Click(view);
     }

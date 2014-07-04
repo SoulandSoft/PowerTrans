@@ -14,7 +14,8 @@
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" android:id="@+id/MainControls">
+                android:layout_height="wrap_content"
+                android:id="@+id/MainControls">
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="fill_parent"
@@ -87,7 +88,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="-What's that?"
-                        android:id="@+id/button" android:layout_gravity="center_horizontal|bottom"/>
+                        android:id="@+id/button" android:layout_gravity="center_horizontal|bottom"
+                        android:onClick="Click"/>
             </LinearLayout>
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                           xmlns:tools="http://schemas.android.com/tools"
@@ -123,7 +125,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/button_add"
-                        android:onClick="MainControls_Click"
+                        android:onClick="Click"
                         android:clickable="true"/>
             </LinearLayout>
 
@@ -135,7 +137,7 @@
             android:text="@string/Calculate_caption"
             android:id="@+id/Calculate_button"
             android:layout_weight="1"
-            android:onClick="MainControls_Click"
+            android:onClick="Click"
             android:clickable="true"
             />
 </LinearLayout>

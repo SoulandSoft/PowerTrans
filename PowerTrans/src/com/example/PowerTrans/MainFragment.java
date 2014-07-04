@@ -58,10 +58,9 @@ public class MainFragment extends Fragment {
         }
     }
 
-
-    public void sendMessage() {
+    public void getResult() {
         Intent intent = new Intent(getActivity().getApplicationContext(), ResultActivity.class);
-        intent.putExtra(EXTRA_MESSAGE, "Huy");
+        intent.putExtra("PowerTransformer", Pt);
         startActivity(intent);
         //EditText editText = (EditText) findViewById(R.id.edit_message);
         //String message = editText.getText().toString();
@@ -100,7 +99,7 @@ public class MainFragment extends Fragment {
         Log.d(LOG_TAG, "Sst * Sok = " + Pt.calc_min_SstSok());
         Log.d(LOG_TAG, "Power = " + Pt.get_Power());
         Log.d(LOG_TAG, "Kpd = " + Pt.get_kpd());
-        sendMessage();
+        getResult();
 
     }
 

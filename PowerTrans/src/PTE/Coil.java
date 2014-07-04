@@ -1,6 +1,8 @@
 package PTE;
 
-public class Coil {
+import java.io.Serializable;
+
+public class Coil implements Serializable {
 
     //Fields
     private double voltage;                 // Voltage in V         must be set by user
@@ -10,9 +12,7 @@ public class Coil {
     private double power;                   // Power of coil       (computable)
 
 
-
-
-    public void update(double v, double cur){
+    public void update(double v, double cur) {
         setVoltage(v);
         setCurrent(cur);
 
@@ -45,16 +45,15 @@ public class Coil {
         return n_of_turns;
     }
 
-    public void calculate(double Bmax, double J, double Sst){
-        n_of_turns = 45.0*voltage/(Bmax * Sst);
-        wire_diameter = 1.13 *Math.sqrt(current/J);
+    public void calculate(double Bmax, double J, double Sst) {
+        n_of_turns = 45.0 * voltage / (Bmax * Sst);
+        wire_diameter = 1.13 * Math.sqrt(current / J);
     }
 
     public double getPower() {
         power = getCurrent() * getVoltage();
         return power;
     }
-
 
 
 }
