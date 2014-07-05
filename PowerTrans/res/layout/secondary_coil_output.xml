@@ -8,11 +8,21 @@
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/Voltage_output" android:layout_gravity="left|center_vertical"
-            android:text="0"/>
+            android:text="Index"
+            android:id="@+id/Index_output" android:layout_gravity="center_horizontal"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/Current_output" android:layout_gravity="left|center_vertical"
-            android:text="0"/>
+            android:text="power"
+            android:id="@+id/Power_output" android:singleLine="true" android:layout_gravity="center_horizontal"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Voltage_output" android:layout_gravity="center_horizontal"
+            android:text="voltage"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Current_output" android:layout_gravity="center_horizontal"
+            android:text="current"/>
 </LinearLayout>

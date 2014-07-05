@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.text.NumberFormat;
+
 public class ResultFragment extends Fragment {
     final String LOG_TAG = "myLogs";
     public LinearLayout lLayout;
@@ -40,6 +42,10 @@ public class ResultFragment extends Fragment {
 
     // Method, that display formatted data.
     public void display(PowerTransformer pt) {
+        int i = 1;
+        NumberFormat nf = NumberFormat.getInstance();
+        nf.setMaximumFractionDigits(2);
+
         for (Coil c : pt.secondaries) {
             Log.d(LOG_TAG, "Output Wire");
             LinearLayout L = (LinearLayout) lInflater.inflate(R.layout.secondary_coil_output, null);
@@ -48,6 +54,11 @@ public class ResultFragment extends Fragment {
             V.setText(" " + c.getVoltage());
             TextView C = (TextView) L.findViewById(R.id.Current_output);
             C.setText(" " + c.getCurrent());
+            TextView P = (TextView) L.findViewById(R.id.Power_output);
+            P.setText(" " + nf.format(c.getPower()));
+            TextView I = (TextView) L.findViewById(R.id.Index_output);
+            I.setText(" " + i);
+            i++;
             In.addView(L);
         }
 
