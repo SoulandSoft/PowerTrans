@@ -13,7 +13,7 @@
     <EditText
             android:text="0"
             android:inputType="numberDecimal"
-            android:id="@+id/Current_input"
+            android:id="@+id/Voltage_input"
             android:layout_width="65dp"
             android:layout_height="40dp"
             android:gravity="center"/>
@@ -26,7 +26,7 @@
     <EditText
             android:text="0"
             android:inputType="numberDecimal"
-            android:id="@+id/Voltage_input"
+            android:id="@+id/Current_input"
             android:layout_width="65dp"
             android:layout_height="40dp"
             android:layout_gravity="left" android:gravity="center"/>
