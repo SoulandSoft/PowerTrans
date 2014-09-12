@@ -186,10 +186,11 @@ public class PowerTransformer implements Serializable {
         return CosFi;
     }
 
-    public double calc_I_primary() {
+    public void calc_primary() {
 
         primary.setCurrent(get_Power() / (primary.getVoltage() * get_kpd() * get_CosFi()));
-        return primary.getCurrent();
+        primary.getPower();
+        primary.calculate(get_Bmax(), get_J(), Sst);
     }
 
     public double calc_min_SstSok() {
@@ -239,8 +240,8 @@ public class PowerTransformer implements Serializable {
     public void calculate() {
 
     calc_min_SstSok();
-    calc_I_primary();
+    calc_primary();
     calc_secondaries();
-
+    Log.d("CALCULATE", "Done");
     }
 }
