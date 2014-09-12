@@ -1,7 +1,7 @@
 package PTE;
 
 import java.io.Serializable;
-
+import android.util.Log;
 public class Coil implements Serializable {
 
     //Fields
@@ -29,6 +29,7 @@ public class Coil implements Serializable {
     }
 
     public double getCurrent() {
+        Log.d("AMOUNT", "Coil current is " + current);
         return current;
     }
 
@@ -37,13 +38,6 @@ public class Coil implements Serializable {
         this.current = current;
     }
 
-    public double getWire_diameter() {
-        return wire_diameter;
-    }
-
-    public double getN_of_turns() {
-        return n_of_turns;
-    }
 
     public void calculate(double Bmax, double J, double Sst) {
         n_of_turns = 45.0 * voltage / (Bmax * Sst);

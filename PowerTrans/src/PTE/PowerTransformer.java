@@ -1,5 +1,7 @@
 package PTE;
 
+import android.util.Log;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -18,8 +20,11 @@ public class PowerTransformer implements Serializable {
     private double min_SstSok;
     private double Sst;
     private double Sok;
-
-    public PowerTransformer() {
+    private double Bmax;
+    private double J;
+    private double kpd;
+    private double CosFi;
+        public PowerTransformer() {
 
         core = Construction_Type.Shell;
         primary = new Coil();
@@ -39,9 +44,7 @@ public class PowerTransformer implements Serializable {
 
     public double get_Bmax() {
 
-        double Bmax = 0;
-        //get_Power();
-        switch (core) {
+    switch (core) {
 
             case Shell:
                 if (power >= 5.0 && power < 15.0) {
@@ -79,13 +82,13 @@ public class PowerTransformer implements Serializable {
             default:
                 break;
         }
-
+        Log.d("AMOUNT", "BMax is " + Bmax);
         return Bmax;
+
     }
 
     public double get_J() {
 
-        double J = 0;
         switch (core) {
             case Shell:
                 if (power >= 5.0 && power < 15.0) {
@@ -128,12 +131,12 @@ public class PowerTransformer implements Serializable {
                 break;
         }
 
+        Log.d("AMOUNT", "J is " + J);
         return J;
     }
 
     public double get_kpd() {
 
-        double kpd = 0;
         switch (core) {
             case Shell:
                 if (power >= 2.0 && power < 15.0) {
@@ -162,12 +165,13 @@ public class PowerTransformer implements Serializable {
                 }
                 break;
         }
+        Log.d("AMOUNT", "kpd is " + kpd);
         return kpd;
     }
 
     public double get_CosFi() {
 
-        double CosFi = 0;
+
         get_Power();
         if (power >= 2.0 && power < 15.0) {
             CosFi = 0.85 + 0.05 * (power - 2.0) / 13.0;
@@ -178,6 +182,7 @@ public class PowerTransformer implements Serializable {
         } else if (power >= 300.0 && power <= 1000.0) {
             CosFi = 0.94;
         }
+        Log.d("AMOUNT", "CosFi is " + CosFi);
         return CosFi;
     }
 
@@ -234,6 +239,8 @@ public class PowerTransformer implements Serializable {
     public void calculate() {
 
     calc_min_SstSok();
+    calc_I_primary();
+    calc_secondaries();
 
     }
 }
