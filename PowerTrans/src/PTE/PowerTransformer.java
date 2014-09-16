@@ -237,6 +237,7 @@ public class PowerTransformer implements Serializable {
             default: break;
         }
     }
+
     public void calculate() {
 
     calc_min_SstSok();
