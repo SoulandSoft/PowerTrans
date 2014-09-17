@@ -10,7 +10,7 @@ public class PowerTransformer implements Serializable {
     enum Construction_Type {Shell, Core, Toroid}
 
     // constants
-    public static final double Kzok = 0.3;
+    public static final double Kzok = 0.4;
     public static final double Kst = 0.9;
 
     public Coil primary;                           // Primary coil is only one.
